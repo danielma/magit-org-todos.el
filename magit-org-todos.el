@@ -4,9 +4,10 @@
 ;; Author: Daniel Ma
 ;; URL: http://github.com/danielma/magit-org-todos
 ;; Created: 2018
-;; Version: 1.0
+;; Version: 0.1.0
 ;; Keywords: org magit todo
-;; Package-Requires: ((magit) (org))
+;; Package-Version: 0.1.0
+;; Package-Requires: ((magit "2.0.0") (org "9.0.0"))
 
 ;;; Commentary:
 ;;
@@ -57,7 +58,11 @@
 ;;;###autoload
 (defun magit-org-todos/autoinsert ()
   "Automatically insert todo section into magit status buffer."
-    (magit-add-section-hook 'magit-status-sections-hook 'magit-org-todos/insert-org-todos 'magit-insert-staged-changes t))
+  (magit-add-section-hook
+   'magit-status-sections-hook
+   'magit-org-todos/insert-org-todos
+   'magit-insert-staged-changes
+   t))
 
 (provide 'magit-org-todos)
 
