@@ -15,7 +15,7 @@
 
 ;;; Code:
 (require 'magit)
-(require 'org)
+(require 'org-element)
 
 (defun mot--todo-file-path ()
   "Path of the todo file."
@@ -50,7 +50,7 @@
           (let ((keyword (org-element-property :todo-keyword todo))
                 (title (org-element-property :raw-value todo)))
             (magit-insert-section (org-todo title)
-            (insert (concat "* " keyword " " title))
+            (insert (concat "* " (propertize keyword 'face 'org-todo) " " title))
             (insert ?\n))))
         (insert ?\n)))))
 
