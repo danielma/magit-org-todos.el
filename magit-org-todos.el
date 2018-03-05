@@ -23,6 +23,17 @@
          (todo (concat toplevel "todo.org")))
     todo))
 
+(defun mot--magit-visit-org-todo ()
+  "Visits the org todo file."
+  (interactive)
+  (find-file (mot--todo-file-path)))
+
+(defvar magit-org-todo-section-map
+  (let ((m (make-sparse-keymap)))
+    (define-key m [remap magit-visit-thing] 'mot--magit-visit-org-todo)
+    m))
+
+;;;###autoload
 (defun magit-org-todos/insert-org-todos ()
   "Insert org todos from the local todo.org."
   (when (file-readable-p (mot--todo-file-path))
@@ -39,19 +50,14 @@
           (let ((keyword (org-element-property :todo-keyword todo))
                 (title (org-element-property :raw-value todo)))
             (magit-insert-section (org-todo title)
-            (insert todo)
+            (insert (concat "* " keyword " " title))
             (insert ?\n))))
         (insert ?\n)))))
 
-(defun mot--magit-visit-org-todo ()
-  "Visits the org todo file."
-  (interactive)
-  (find-file (mot--todo-file-path)))
-
-(defvar magit-org-todo-section-map
-  (let ((m (make-sparse-keymap)))
-    (define-key m [remap magit-visit-thing] 'mot--magit-visit-org-todo)
-    m))
+;;;###autoload
+(defun magit-org-todos/autoinsert ()
+  "Automatically insert todo section into magit status buffer."
+    (magit-add-section-hook 'magit-status-sections-hook 'magit-org-todos/insert-org-todos 'magit-insert-staged-changes t))
 
 (provide 'magit-org-todos)
 
