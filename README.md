@@ -6,7 +6,7 @@ If you have a `todo.org` file with `TODO` items in the root of your
 repository, `magit-org-todos` will create a section in your magit
 status buffer with each of your todos.
 
-![todos](https://raw.github.com/danielma/magit-org-todos/master/screenshots/main.png)
+<img src="screenshots/main.png" width="522px" alt="Screenshot" />
 
 ## Usage
 
