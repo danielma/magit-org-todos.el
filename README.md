@@ -15,23 +15,23 @@ The recommended way to use `magit-org-todos` is with [`use-package`](https://git
 ```elisp
 (use-package magit-org-todos
   :config
-  (magit-org-todos/autoinsert))
+  (magit-org-todos-autoinsert))
 ```
 
 ## Configuration
 
 `magit-org-todos` exposes two main functions.
 
-`magit-org-todos/autoinsert` automatically inserts a section into your
+`magit-org-todos-autoinsert` automatically inserts a section into your
 magit status buffer after the staged changes section.
 
 If you want to insert it at a different location, use
-`magit-add-section-hook` to insert `magit-org-todos/isnert-org-todos`
+`magit-add-section-hook` to insert `magit-org-todos-isnert-org-todos`
 
 ```elisp
 (magit-add-section-hook
   'magit-status-sections-hook
-  'magit-org-todos/insert-org-todos
+  'magit-org-todos-insert-org-todos
   'magit-insert-staged-changes
   t))
 ```
