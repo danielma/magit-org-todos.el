@@ -18,10 +18,21 @@
 (require 'magit)
 (require 'org-element)
 
+;;; Customizations:
+(defgroup magit-org-todos nil
+  "Add local todo items to the magit status buffer"
+  :group 'tools)
+
+(defcustom magit-org-todos-filename "todo.org"
+  "The org file that holds todo items."
+  :group 'magit-org-todos
+  :type 'string)
+
+;;; Implementation:
 (defun magit-org-todos--todo-file-path ()
   "Path of the todo file."
   (let* ((toplevel (magit-toplevel))
-         (todo (concat toplevel "todo.org")))
+         (todo (concat toplevel magit-org-todos-filename)))
     todo))
 
 (defun magit-org-todos--magit-visit-org-todo ()
