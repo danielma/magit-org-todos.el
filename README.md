@@ -26,7 +26,7 @@ The recommended way to use `magit-org-todos` is with [`use-package`](https://git
 magit status buffer after the staged changes section.
 
 If you want to insert it at a different location, use
-`magit-add-section-hook` to insert `magit-org-todos-isnert-org-todos`
+`magit-add-section-hook` to insert `magit-org-todos-insert-org-todos`
 
 ```elisp
 (magit-add-section-hook
