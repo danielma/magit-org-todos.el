@@ -1,3 +1,7 @@
+# 0.1.3 (July 9th, 2018)
+
+- Preserve item level and priority https://github.com/danielma/magit-org-todos.el/pull/8 (thanks @czan)
+
 # 0.1.2 (April 12th, 2018)
 
 - Show only text of links https://github.com/danielma/magit-org-todos.el/pull/4

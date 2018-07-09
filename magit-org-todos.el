@@ -4,9 +4,9 @@
 ;; Author: Daniel Ma
 ;; URL: http://github.com/danielma/magit-org-todos
 ;; Created: 2018
-;; Version: 0.1.2
+;; Version: 0.1.3
 ;; Keywords: org-mode magit tools
-;; Package-Version: 0.1.2
+;; Package-Version: 0.1.3
 ;; Package-Requires: ((magit "2.0.0") (emacs "24"))
 
 ;;; Commentary:
